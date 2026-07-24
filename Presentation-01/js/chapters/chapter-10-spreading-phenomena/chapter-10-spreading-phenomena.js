@@ -37,7 +37,7 @@ window.chapters.push({
           <p>The final chapter, and the one where the whole book pays off. Diseases, ideas, viruses, and memes all spread over networks &mdash; and the <em>structure</em> of the network decides their fate.</p>
           <p>The headline result ties straight back to the scale-free property: on a scale-free network, <strong>the epidemic threshold vanishes</strong>.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-10/figure-10-1.jpg" alt="Super-spreaders" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-10-spreading-phenomena/images/book/figure-10-1.jpg" alt="Super-spreaders" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 10.1 &mdash; super-spreaders: a few hubs drive most of the transmission.</p>
     </section>`,
@@ -54,7 +54,7 @@ window.chapters.push({
             <li><strong>SIR</strong> &mdash; recovery grants immunity (flu, measles)</li>
           </ul>
         </div>
-        <img src="https://networksciencebook.com/images/ch-10/figure-10-6.jpg" alt="SIR model" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-10-spreading-phenomena/images/book/figure-10-6.jpg" alt="SIR model" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 10.6 &mdash; the SIR compartments and their rate equations.</p>
     </section>`,
@@ -104,7 +104,7 @@ window.chapters.push({
           <div class="eq-panel">\\[ \\lambda = \\frac{\\beta}{\\mu} \\]</div>
           <p class="caption">A pathogen persists only if \\(\\lambda\\) exceeds an <em>epidemic threshold</em> \\(\\lambda_c\\).</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-10/figure-10-13.jpg" alt="The sex web" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-10-spreading-phenomena/images/book/figure-10-13.jpg" alt="The sex web" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 10.13 &mdash; the scale-free "sex web," the contact network for STDs.</p>
     </section>`,
@@ -163,7 +163,7 @@ window.chapters.push({
           </ul>
           <p class="caption">The air-travel network turns local outbreaks into global pandemics within days.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-10/figure-10-15.jpg" alt="Air transportation network" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-10-spreading-phenomena/images/book/figure-10-15.jpg" alt="Air transportation network" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -185,7 +185,7 @@ window.chapters.push({
           <div class="eq-panel" style="font-size:0.85rem;">\\[ \\lambda_c = \\frac{\\langle k\\rangle}{\\langle k^2\\rangle} \\;\\uparrow \\text{ as hubs removed} \\]</div>
           <p class="caption">Immunizing hubs fragments the contact network &mdash; the pathogen gets trapped in small islands.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-10/figure-10-24.jpg" alt="Selective immunization" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-10-spreading-phenomena/images/book/figure-10-24.jpg" alt="Selective immunization" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -201,7 +201,7 @@ window.chapters.push({
           </ul>
           <p class="caption">Robustness and immunization both trace back to the diverging \\(\\langle k^2\\rangle\\). Attack and targeted immunization are the same operation.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-10/figure-10-23.jpg" alt="Robustness and immunization" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-10-spreading-phenomena/images/book/figure-10-23.jpg" alt="Robustness and immunization" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -213,7 +213,7 @@ window.chapters.push({
           <p>Modern models (like GLEAM) combine the air-travel network with local epidemic dynamics to <em>forecast</em> a pandemic's spread &mdash; validated on the 2009 H1N1 outbreak.</p>
           <p>The key idea: geographic distance is misleading. <strong>Effective distance</strong> &mdash; derived from travel flows &mdash; predicts arrival times far better.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-10/figure-10-32.jpg" alt="Effective distance and arrival time" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-10-spreading-phenomena/images/book/figure-10-32.jpg" alt="Effective distance and arrival time" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 10.32 &mdash; in effective-distance space, an epidemic spreads as a simple expanding wave.</p>
     </section>`,

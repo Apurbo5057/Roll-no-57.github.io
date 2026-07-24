@@ -10,3 +10,9 @@ Desktop.ini
 # Local scratch
 node_modules/
 *.log
+
+# Headless-browser profiles that tooling may drop in the tree
+Crashpad/
+**/Default/Cache/
+cprofile*/
+

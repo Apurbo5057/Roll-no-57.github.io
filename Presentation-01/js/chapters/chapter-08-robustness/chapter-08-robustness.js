@@ -38,7 +38,7 @@ window.chapters.push({
           <p><strong>Scale-free networks shrug off random failure &mdash; but shatter under targeted attack.</strong></p>
           <p class="caption">Same hubs, opposite outcomes. This is the "Achilles' heel" of complex networks.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-08/figure-8-1.jpg" alt="Achilles heel of complex networks" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-08-robustness/images/book/figure-8-1.jpg" alt="Achilles heel of complex networks" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 8.1 &mdash; robust and fragile at once.</p>
     </section>`,
@@ -51,7 +51,7 @@ window.chapters.push({
           <p>Removing a fraction \\(f\\) of nodes is percolation run backwards. Past a critical \\(f_c\\) the giant component vanishes &mdash; the network fragments.</p>
           <p class="caption">For random networks the critical exponents match \\(d&gt;6\\) percolation: \\(\\gamma_p = 1\\), \\(\\beta_p = 1\\), \\(\\nu = 1/2\\).</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-08/figure-8-5.jpg" alt="Network breakdown as inverse percolation" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-08-robustness/images/book/figure-8-5.jpg" alt="Network breakdown as inverse percolation" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -98,7 +98,7 @@ window.chapters.push({
           <p><strong>To fragment a large scale-free network by random failure, you must remove <em>all</em> its nodes.</strong></p>
           <p class="caption">Random failure is blind to degree, and there are vastly more small nodes than hubs &mdash; so it almost always removes something unimportant.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-08/figure-8-9.jpg" alt="Robustness and degree exponent" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-08-robustness/images/book/figure-8-9.jpg" alt="Robustness and degree exponent" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -119,7 +119,7 @@ window.chapters.push({
           <div class="eq-panel" style="font-size:0.85rem;">\\[ f_c^{\\frac{2-\\gamma}{1-\\gamma}} = 2 + \\frac{2-\\gamma}{3-\\gamma}k_{min}\\left(f_c^{\\frac{3-\\gamma}{1-\\gamma}} - 1\\right) \\]</div>
           <p class="caption">Removing just a few percent of the hubs breaks the network into tiny clusters.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-08/figure-8-11.jpg" alt="Scale-free network under attack" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-08-robustness/images/book/figure-8-11.jpg" alt="Scale-free network under attack" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -131,7 +131,7 @@ window.chapters.push({
           <p>Real failures <em>propagate</em>: one node fails, redistributes load, overloads neighbors, which fail in turn. A tiny trigger can collapse the system.</p>
           <p>Cascade sizes follow a <strong>power law</strong> \\(p(s) \\sim s^{-\\alpha}\\) &mdash; most are tiny, rare ones are catastrophic (the 2003 blackout: a few lines &rarr; 50 million dark).</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-08/figure-8-16.jpg" alt="Northeast blackout 2003" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-08-robustness/images/book/figure-8-16.jpg" alt="Northeast blackout 2003" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -156,7 +156,7 @@ window.chapters.push({
           <div class="eq-panel">\\[ \\alpha = \\begin{cases} 3/2 & \\gamma \\ge 3 \\\\ \\dfrac{\\gamma}{\\gamma-1} & 2&lt;\\gamma&lt;3 \\end{cases} \\]</div>
           <p class="caption">For \\(\\gamma \\ge 3\\), the universal random-walk value 3/2; for \\(2&lt;\\gamma&lt;3\\) the hubs make it \\(\\gamma\\)-dependent. Measured real cascades all fall between 1.5 and 2.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-08/figure-8-22.jpg" alt="The avalanche exponent" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-08-robustness/images/book/figure-8-22.jpg" alt="The avalanche exponent" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -169,7 +169,7 @@ window.chapters.push({
           <div class="eq-panel" style="font-size:0.9rem;">\\[ p_k = (1-r)\\delta(k - k_{min}) + r\\,\\delta(k - k_{max}) \\]</div>
           <p>Optimum at \\(r = 1/N\\): a single hub with \\(k_{max} = A N^{2/3}\\) plus a mesh of equal-degree nodes that survive the hub's loss.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-08/figure-8-24.jpg" alt="Optimizing attack and failure tolerance" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-08-robustness/images/book/figure-8-24.jpg" alt="Optimizing attack and failure tolerance" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 

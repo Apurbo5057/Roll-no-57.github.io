@@ -35,8 +35,8 @@ window.chapters.push({
           <p>Do hubs connect to other hubs, or avoid them? Two networks with the <em>identical</em> degree distribution can look completely different depending on the answer.</p>
         </div>
         <div class="two-col" style="gap:0.5rem;">
-          <img src="https://networksciencebook.com/images/ch-07/figure-7-1.jpg" alt="Hubs dating hubs" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
-          <img src="https://networksciencebook.com/images/ch-07/figure-7-2.jpg" alt="Hubs avoiding hubs" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+          <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-1.jpg" alt="Hubs dating hubs" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+          <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-2.jpg" alt="Hubs avoiding hubs" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
         </div>
       </div>
       <p class="caption">Images 7.1 &amp; 7.2 &mdash; hubs bonding (left) vs. hubs avoiding each other (right).</p>
@@ -95,7 +95,7 @@ window.chapters.push({
     // 6. k_nn real data (book image)
     `<section>
       <h2>In Real Networks</h2>
-      <img src="https://networksciencebook.com/images/ch-07/figure-7-6.jpg" alt="Degree correlation function for real networks" style="width:82%; display:block; margin:0 auto 0.5rem; border-radius:6px; border:1px solid var(--rule);">
+      <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-6.jpg" alt="Degree correlation function for real networks" style="width:82%; display:block; margin:0 auto 0.5rem; border-radius:6px; border:1px solid var(--rule);">
       <p class="caption">Image 7.6 &mdash; \\(k_{nn}(k)\\) rising for collaboration (assortative), flat for the power grid (neutral), falling for metabolism (disassortative). The horizontal line is the neutral prediction.</p>
     </section>`,
 
@@ -108,7 +108,7 @@ window.chapters.push({
           <div class="eq-panel">\\[ E_{kk'} = \\frac{k\\,k'}{\\langle k\\rangle N} \\]</div>
           <p>But only one link is allowed. Above the <strong>structural cutoff</strong> \\(k_s \\sim (\\langle k\\rangle N)^{1/2}\\), hubs are <em>forced</em> onto small nodes &mdash; an artificial disassortativity.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-07/figure-7-7.jpg" alt="Structural disassortativity" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-7.jpg" alt="Structural disassortativity" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Thesis caution: always check whether measured disassortativity is <em>structural</em> or genuine.</p>
     </section>`,
@@ -121,7 +121,7 @@ window.chapters.push({
           <p>The <strong>Xulvi-Brunet &amp; Sokolov algorithm</strong>: pick two links, rewire their four endpoints to connect <em>similar</em> degrees (assortative) or <em>dissimilar</em> degrees (disassortative).</p>
           <p class="caption">Dialing the rewiring probability \\(p\\) moves a network across the full range &mdash; all while keeping \\(p_k\\) fixed. The standard tool for isolating what correlations actually <em>do</em>.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-07/figure-7-13.jpg" alt="Xulvi-Brunet Sokolov algorithm" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-13.jpg" alt="Xulvi-Brunet Sokolov algorithm" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -136,7 +136,7 @@ window.chapters.push({
             <li><strong>Disassortative</strong> &rarr; transition <em>delayed</em>; harder to form a giant component.</li>
           </ul>
         </div>
-        <img src="https://networksciencebook.com/images/ch-07/figure-7-15.jpg" alt="Correlations and the phase transition" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-15.jpg" alt="Correlations and the phase transition" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -151,7 +151,7 @@ window.chapters.push({
             <li><strong>Distances:</strong> assortative &rarr; shorter \\(\\langle d\\rangle\\) but <em>larger</em> diameter (long chains of \\(k=2\\) nodes).</li>
           </ul>
         </div>
-        <img src="https://networksciencebook.com/images/ch-07/figure-7-16.jpg" alt="Correlations and path lengths" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-16.jpg" alt="Correlations and path lengths" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -168,7 +168,7 @@ window.chapters.push({
           </ol>
           <p class="caption">The coefficient \\(r\\) gives a single number, but \\(\\mu\\) is more faithful &mdash; \\(r\\) force-fits a line to a power law and fades for large \\(N\\).</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-07/figure-7-18.jpg" alt="Political blogosphere" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-07-degree-correlations/images/book/figure-7-18.jpg" alt="Political blogosphere" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 7.18 &mdash; the US political blogosphere: an extreme assortative network, blogs almost never linking across the divide.</p>
     </section>`

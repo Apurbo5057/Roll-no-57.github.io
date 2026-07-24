@@ -36,7 +36,7 @@ window.chapters.push({
           <p>The BA model is minimal &mdash; and has three limits: it predicts only \\(\\gamma = 3\\), only a <em>pure</em> power law, and it says the oldest node is always the biggest.</p>
           <p>But Google and Facebook arrived <em>late</em> and became the biggest hubs. Something beyond age lets a node win: <strong>fitness</strong>.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-06/figure-6-1.jpg" alt="Garment district" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-06-evolving-networks/images/book/figure-6-1.jpg" alt="Garment district" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 6.1 &mdash; a competitive marketplace: some players thrive regardless of when they entered.</p>
     </section>`,
@@ -86,11 +86,11 @@ window.chapters.push({
       <h2>Fitness Is Measurable</h2>
       <div class="two-col">
         <div>
-          <img src="https://networksciencebook.com/images/ch-06/figure-6-4.jpg" alt="WWW fitness distribution" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+          <img src="js/chapters/chapter-06-evolving-networks/images/book/figure-6-4.jpg" alt="WWW fitness distribution" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
           <p class="caption">WWW &mdash; exponential fitness.</p>
         </div>
         <div>
-          <img src="https://networksciencebook.com/images/ch-06/figure-6-5.jpg" alt="Paper fitness distribution" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+          <img src="js/chapters/chapter-06-evolving-networks/images/book/figure-6-5.jpg" alt="Paper fitness distribution" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
           <p class="caption">Papers &mdash; peaked fitness.</p>
         </div>
       </div>
@@ -111,7 +111,7 @@ window.chapters.push({
           </ul>
           <p class="caption">The links obey Bose statistics &mdash; and the mapping predicts two phases.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-06/figure-6-7.jpg" alt="Mapping networks to a Bose gas" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-06-evolving-networks/images/book/figure-6-7.jpg" alt="Mapping networks to a Bose gas" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -136,7 +136,7 @@ window.chapters.push({
           <p>Two effects: raises the exponent \\(\\gamma = 3 + A/m\\), and creates a low-degree saturation \\(p_k = C(k+A)^{-\\gamma}\\).</p>
           <p class="caption">Measured in citations: \\(A \\approx 7\\). This is the mechanistic origin of the \\(k_{sat}\\) you fit empirically.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-06/figure-6-10.jpg" alt="Initial attractiveness" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-06-evolving-networks/images/book/figure-6-10.jpg" alt="Initial attractiveness" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -156,7 +156,7 @@ window.chapters.push({
           <div class="eq-panel">\\[ \\gamma = 3 + \\frac{2}{1-r} \\]</div>
           <p>Combined with initial attractiveness, a rising removal rate drives an actual <strong>topological phase transition</strong>: scale-free &rarr; stretched exponential &rarr; exponential.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-06/figure-6-12.jpg" alt="Phase transitions from node removal" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-06-evolving-networks/images/book/figure-6-12.jpg" alt="Phase transitions from node removal" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -173,7 +173,7 @@ window.chapters.push({
             <li>\\(\\nu &gt; 1\\): scale-free property lost &rarr; chain</li>
           </ul>
         </div>
-        <img src="https://networksciencebook.com/images/ch-06/figure-6-14.jpg" alt="The impact of aging" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-06-evolving-networks/images/book/figure-6-14.jpg" alt="The impact of aging" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 

@@ -43,7 +43,7 @@ window.chapters.push({
           <p>The answer is two simple mechanisms &mdash; <strong>growth</strong> and <strong>preferential attachment</strong> &mdash; and the chapter proves they are both necessary and sufficient.</p>
           <p class="caption">The deep message: a network's structure and its history are inseparable.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-05/figure-5-1.jpg" alt="The growth of networks" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-05-barabasi-albert-model/images/book/figure-5-1.jpg" alt="The growth of networks" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 5.1 &mdash; the WWW, citation, and actor networks all grow by continuously adding nodes.</p>
     </section>`,
@@ -152,14 +152,14 @@ window.chapters.push({
           <div class="eq-panel">\\[ \\frac{\\Delta k_i}{\\Delta t} \\sim \\Pi(k_i) \\]</div>
           <p>The cumulative \\(\\pi(k) = \\sum \\Pi(k_i)\\) is cleaner: no attachment gives \\(\\pi(k)\\sim k\\); linear attachment gives \\(\\pi(k)\\sim k^2\\).</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-05/figure-5-9.jpg" alt="Detecting preferential attachment" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-05-barabasi-albert-model/images/book/figure-5-9.jpg" alt="Detecting preferential attachment" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
     // 11. Evidence (book image)
     `<section>
       <h2>The Evidence</h2>
-      <img src="https://networksciencebook.com/images/ch-05/figure-5-10.jpg" alt="Evidence of preferential attachment" style="width:75%; display:block; margin:0 auto 0.5rem; border-radius:6px; border:1px solid var(--rule);">
+      <img src="js/chapters/chapter-05-barabasi-albert-model/images/book/figure-5-10.jpg" alt="Evidence of preferential attachment" style="width:75%; display:block; margin:0 auto 0.5rem; border-radius:6px; border:1px solid var(--rule);">
       <p class="caption">Image 5.10 &mdash; \\(\\pi(k)\\) for four real networks, all rising faster than \\(k\\) (attachment is real). Internet & citations are linear (\\(\\alpha\\approx1\\)); collaboration & actors are <em>sublinear</em> (\\(\\alpha\\approx0.9\\)).</p>
     </section>`,
 
@@ -186,7 +186,7 @@ window.chapters.push({
             <li><strong>Optimization</strong> &mdash; balance distance vs. centrality; the scale-free phase produces linear \\(\\Pi(k)\\).</li>
           </ul>
         </div>
-        <img src="https://networksciencebook.com/images/ch-05/figure-5-17.jpg" alt="Luck or reason" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-05-barabasi-albert-model/images/book/figure-5-17.jpg" alt="Luck or reason" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 5.17 &mdash; preferential attachment arises from either randomness or optimization; both roads produce a linear \\(\\Pi(k)\\).</p>
     </section>`,
@@ -198,12 +198,12 @@ window.chapters.push({
         <div>
           <div class="eq-panel">\\[ \\langle d \\rangle \\sim \\frac{\\ln N}{\\ln\\ln N} \\]</div>
           <p class="caption">Smaller than a random network's \\(\\ln N\\) &mdash; BA networks are even more compact.</p>
-          <img src="https://networksciencebook.com/images/ch-05/figure-5-18.jpg" alt="Average distance" style="width:100%; border-radius:6px; border:1px solid var(--rule); margin-top:0.5rem;">
+          <img src="js/chapters/chapter-05-barabasi-albert-model/images/book/figure-5-18.jpg" alt="Average distance" style="width:100%; border-radius:6px; border:1px solid var(--rule); margin-top:0.5rem;">
         </div>
         <div>
           <div class="eq-panel">\\[ \\langle C \\rangle \\sim \\frac{(\\ln N)^2}{N} \\]</div>
           <p class="caption">Above the random network's \\(1/N\\) &mdash; BA networks are more locally clustered.</p>
-          <img src="https://networksciencebook.com/images/ch-05/figure-5-19.jpg" alt="Clustering coefficient" style="width:100%; border-radius:6px; border:1px solid var(--rule); margin-top:0.5rem;">
+          <img src="js/chapters/chapter-05-barabasi-albert-model/images/book/figure-5-19.jpg" alt="Clustering coefficient" style="width:100%; border-radius:6px; border:1px solid var(--rule); margin-top:0.5rem;">
         </div>
       </div>
     </section>`,

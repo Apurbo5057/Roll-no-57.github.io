@@ -36,7 +36,7 @@ window.chapters.push({
           <p>Networks aren't uniform. They break into <strong>communities</strong> &mdash; groups densely wired inside, loosely wired to the rest.</p>
           <p>Finding them reveals functional modules in cells, interest groups in society, topics on the Web &mdash; all from the wiring alone.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-1.jpg" alt="Communities in Belgium" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-1.jpg" alt="Communities in Belgium" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 9.1 &mdash; the Belgian call network splits into French- and Dutch-speaking communities, recovered from call data alone.</p>
     </section>`,
@@ -49,7 +49,7 @@ window.chapters.push({
           <p><strong>H1:</strong> a network's community structure is uniquely encoded in its wiring diagram &mdash; not imposed from outside.</p>
           <p>The classic proof: Zachary's karate club split into two factions after a dispute. The network structure <em>predicts the split</em> almost perfectly.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-2.jpg" alt="Zachary karate club" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-2.jpg" alt="Zachary karate club" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 9.2 &mdash; the canonical test case for community detection.</p>
     </section>`,
@@ -83,7 +83,7 @@ window.chapters.push({
           <p>It grows <em>faster than exponentially</em> &mdash; over \\(10^{40}\\) partitions for just \\(N=50\\).</p>
           <p class="caption">Brute force is hopeless. Every method is a clever heuristic; none is provably "the" answer.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-7.jpg" alt="Number of partitions" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-7.jpg" alt="Number of partitions" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -111,7 +111,7 @@ window.chapters.push({
           </ul>
           <p class="caption">On the karate club, Girvan&ndash;Newman got the real split with just one node misclassified.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-12.jpg" alt="Girvan-Newman algorithm" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-12.jpg" alt="Girvan-Newman algorithm" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -124,7 +124,7 @@ window.chapters.push({
           <div class="eq-panel" style="font-size:0.85rem;">\\[ \\gamma = 1 + \\frac{\\ln 5}{\\ln 4} = 2.16, \\quad C(k) \\sim k^{-1} \\]</div>
           <p class="caption">\\(C(k)\\sim k^{-1}\\) is the hierarchy signature: small nodes in dense communities, hubs bridging them. Flat for ER/BA; decreasing for 9 of 10 real networks.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-13.jpg" alt="Hierarchical network" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-13.jpg" alt="Hierarchical network" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -159,7 +159,7 @@ window.chapters.push({
             <li><strong>Modularity plateau:</strong> many very different partitions have near-max \\(M\\), so the max isn't unique.</li>
           </ul>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-18.jpg" alt="Modularity maxima" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-18.jpg" alt="Modularity maxima" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -171,7 +171,7 @@ window.chapters.push({
           <p>Real nodes belong to <em>many</em> communities. <strong>Clique percolation (CFinder)</strong> rolls \\(k\\)-cliques across the network; two are adjacent if they share \\(k-1\\) nodes.</p>
           <p class="caption">The word "bright" lands in four communities at once: light (<em>glow</em>), color (<em>yellow</em>), astronomy (<em>sun</em>), and intelligence (<em>brilliant</em>) &mdash; which partition methods would wrongly force into one.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-21.jpg" alt="Overlapping communities bright" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-21.jpg" alt="Overlapping communities bright" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -187,7 +187,7 @@ window.chapters.push({
           </ul>
           <p class="caption">Accuracy measured by normalized mutual information. No universal winner &mdash; speed (Louvain's near-linearity) often decides usability.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-27.jpg" alt="Testing against benchmarks" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-27.jpg" alt="Testing against benchmarks" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -202,7 +202,7 @@ window.chapters.push({
             <li><strong>Evolution:</strong> communities are born, grow, merge, split, and die over time.</li>
           </ul>
         </div>
-        <img src="https://networksciencebook.com/images/ch-09/figure-9-30.jpg" alt="Communities and link weights" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-09-communities/images/book/figure-9-30.jpg" alt="Communities and link weights" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 9.30 &mdash; Granovetter's weak ties, confirmed in the mobile call network.</p>
     </section>`,

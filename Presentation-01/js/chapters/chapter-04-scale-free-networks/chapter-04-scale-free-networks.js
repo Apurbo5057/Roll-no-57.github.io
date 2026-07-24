@@ -43,7 +43,7 @@ window.chapters.push({
           <p>The 1999 discovery that launched network science. The World Wide Web &mdash; \\(N \\approx 10^{12}\\) documents, the largest network ever built &mdash; turned out <em>not</em> to be random.</p>
           <p>Its degree distribution is a <strong>power law</strong>: most nodes have a few links, a few "hubs" have millions. That single fact reshapes everything that follows.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-04/figure-4-1.jpg" alt="WWW topology" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-1.jpg" alt="WWW topology" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 4.1 &mdash; the 1998 WWW map (nodes &gt;50 links red, &gt;500 purple). Hubs everywhere.</p>
     </section>`,
@@ -66,7 +66,7 @@ window.chapters.push({
           <div class="eq-panel">\\[ p_{k_{in}} \\sim k^{-\\gamma_{in}}, \\quad p_{k_{out}} \\sim k^{-\\gamma_{out}} \\]</div>
           <p>with \\(\\gamma_{in} \\approx 2.1\\), \\(\\gamma_{out} \\approx 2.45\\). The green Poisson fit misses completely.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-04/figure-4-2.jpg" alt="WWW degree distribution" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-2.jpg" alt="WWW degree distribution" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -140,7 +140,7 @@ window.chapters.push({
           <p><strong>Random ≈ highway system:</strong> cities have comparable numbers of highways. None has hundreds; none has zero.</p>
           <p><strong>Scale-free ≈ air traffic:</strong> most airports are tiny, but a few (Chicago, LA) are giant hubs. You route <em>through</em> a hub &mdash; which is why hubs reshape how we navigate.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-04/figure-4-6.jpg" alt="Random vs scale-free analogy" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-6.jpg" alt="Random vs scale-free analogy" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
       <p class="caption">Image 4.6 &mdash; the highway (Poisson) vs airport (power-law) analogy.</p>
     </section>`,
@@ -163,7 +163,7 @@ window.chapters.push({
           <p><strong>Scale-free networks don't.</strong> With \\(\\gamma &lt; 3\\), \\(\\sigma_k\\) diverges. Pick a random node and its degree could be 1 or a million &mdash; there's no "typical" degree.</p>
           <p class="caption">WWW: expected in-degree is "\\(4.6 \\pm 1546\\)". The average is nearly meaningless.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-04/figure-4-7.jpg" alt="Lack of an internal scale" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-7.jpg" alt="Lack of an internal scale" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -171,7 +171,7 @@ window.chapters.push({
     `<section>
       <h2>Universality</h2>
       <p>The scale-free property appears across utterly unrelated domains &mdash; a man-made information web, a 4-billion-year-old protein network, email, citations. All deviate from Poisson (green), all fit a power law.</p>
-      <img src="https://networksciencebook.com/images/ch-04/figure-4-10.jpg" alt="Many real networks are scale-free" style="width:78%; display:block; margin:0.5rem auto; border-radius:6px; border:1px solid var(--rule);">
+      <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-10.jpg" alt="Many real networks are scale-free" style="width:78%; display:block; margin:0.5rem auto; border-radius:6px; border:1px solid var(--rule);">
       <p class="caption">Image 4.10 &mdash; Internet, protein interactions, email, citations. But not <em>everything</em> is scale-free: the power grid and materials (capped degree) are not.</p>
     </section>`,
 
@@ -188,7 +188,7 @@ window.chapters.push({
     // 14. Distances figure (book image)
     `<section>
       <h2>Distances Across the Four Regimes</h2>
-      <img src="https://networksciencebook.com/images/ch-04/figure-4-12.jpg" alt="Distances in scale-free networks" style="width:82%; display:block; margin:0 auto 0.5rem; border-radius:6px; border:1px solid var(--rule);">
+      <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-12.jpg" alt="Distances in scale-free networks" style="width:82%; display:block; margin:0 auto 0.5rem; border-radius:6px; border:1px solid var(--rule);">
       <p class="caption">Image 4.12 &mdash; at small \\(N\\) the four \\(\\gamma\\)-regimes are indistinguishable; at large \\(N\\) they separate dramatically. The smaller the \\(\\gamma\\), the shorter the distances.</p>
     </section>`,
 
@@ -206,7 +206,7 @@ window.chapters.push({
           <p class="caption">Swap link pairs, keeping every degree fixed. Tests whether a property comes from \\(p_k\\) alone.</p>
         </div>
       </div>
-      <img src="https://networksciencebook.com/images/ch-04/figure-4-17.jpg" alt="Degree preserving randomization" style="width:70%; display:block; margin:0.6rem auto 0; border-radius:6px; border:1px solid var(--rule);">
+      <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-17.jpg" alt="Degree preserving randomization" style="width:70%; display:block; margin:0.6rem auto 0; border-radius:6px; border:1px solid var(--rule);">
       <p class="caption">Image 4.17 &mdash; full randomization erases hubs (&rarr; random); degree-preserving keeps them (&rarr; still scale-free).</p>
     </section>`,
 
@@ -219,7 +219,7 @@ window.chapters.push({
           <div class="eq-panel">\\[ p_k \\sim k^{-(1 + 1/\\alpha)}, \\quad \\gamma = 1 + \\tfrac{1}{\\alpha} \\]</div>
           <p class="caption">Tune \\(\\alpha\\) for \\(\\gamma\\), and \\(\\langle\\eta\\rangle\\) for \\(\\langle k\\rangle\\) &mdash; independent control, unlike the configuration model. No self-loops or multi-links.</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-04/figure-4-18.jpg" alt="Hidden parameter model" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-18.jpg" alt="Hidden parameter model" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
@@ -248,7 +248,7 @@ window.chapters.push({
           </ol>
           <p class="caption">The pure power law is <em>rejected</em> for citations (\\(p&lt;10^{-4}\\)); the saturation+cutoff form fits well (\\(p=0.69\\)).</p>
         </div>
-        <img src="https://networksciencebook.com/images/ch-04/figure-4-24.jpg" alt="Maximum likelihood estimation" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
+        <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-24.jpg" alt="Maximum likelihood estimation" style="width:100%; border-radius:6px; border:1px solid var(--rule);">
       </div>
     </section>`,
 
