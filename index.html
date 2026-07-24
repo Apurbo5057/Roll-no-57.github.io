@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apurbo — Presentations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A collection of interactive, browser-based presentations on network science and related topics.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/hub.css">
+<script src="assets/hub.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ============================================================
+       HERO — edit the name, lede and links below to taste.
+       ============================================================ -->
+  <header class="hero">
+    <canvas id="hero-net" aria-hidden="true"></canvas>
+    <p class="eyebrow">CSE, BUET &middot; Level 4 Term 2</p>
+    <h1>Apurbo</h1>
+    <p class="lede">
+      Interactive presentations built as <strong>websites, not slide files</strong> —
+      live simulations, real equations, and figures you can actually poke at.
+      Everything here runs in the browser; nothing to download.
+    </p>
+    <nav class="links">
+      <a href="https://github.com/Roll-no-57">github.com/Roll-no-57</a>
+      <a href="mailto:2105057@cse.buet.ac.bd">2105057@cse.buet.ac.bd</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section-head">
+      <h2>Presentations</h2>
+      <span class="count">01</span>
+      <span class="line"></span>
+    </div>
+
+    <!-- ============================================================
+         DECK REGISTRY
+         To add a presentation later:
+           1. Drop its folder next to this file (e.g. Presentation-02/),
+              with its own index.html inside.
+           2. Copy one <a class="deck"> block below, point href at the
+              folder, and update the text.
+           3. Bump the "count" number in the section head above.
+         Order of the blocks = order on the page.
+         ============================================================ -->
+    <div class="deck-grid">
+
+      <a class="deck" href="Presentation-01/">
+        <p class="deck-meta">Thesis presentation &middot; 2026</p>
+        <h3>Network Science</h3>
+        <p>
+          A walkthrough of Barabási's <em>Network Science</em> — from the graph-theory
+          groundwork through random graphs to the scale-free property, preferential
+          attachment, robustness, communities and spreading phenomena. Built on
+          reveal.js with live D3 network simulations and KaTeX-rendered maths.
+        </p>
+        <div class="chips">
+          <span class="chip">Graph theory</span>
+          <span class="chip">Random networks</span>
+          <span class="chip">Scale-free</span>
+          <span class="chip">Barabási–Albert</span>
+          <span class="chip">Robustness</span>
+          <span class="chip">Communities</span>
+          <span class="chip">Epidemics</span>
+        </div>
+        <div class="deck-foot">
+          <span>11 chapters &middot; ~156 slides</span>
+          <span class="cta">Open <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <div class="deck upcoming">
+        <p class="deck-meta">Next up</p>
+        <h3>More on the way</h3>
+        <p>
+          This page is the index for everything that follows — each new presentation
+          gets its own folder and a card right here.
+        </p>
+        <div class="deck-foot">
+          <span>&mdash;</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span>Built with reveal.js, D3 and KaTeX &middot; hosted on GitHub Pages</span>
+    <span><a href="https://github.com/Roll-no-57/Roll-no-57.github.io">source</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
