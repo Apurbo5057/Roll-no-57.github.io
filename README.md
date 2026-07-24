@@ -1,45 +1,123 @@
 # Roll-no-57.github.io
 
-Portfolio of browser-based presentations. Live at **https://roll-no-57.github.io/**
+Portfolio, writing and presentations. Live at **https://roll-no-57.github.io/**
 
-Everything here is static — no build step, no dependencies to install. GitHub Pages
-serves the repository root as-is.
+Everything is static — no build step, no dependencies to install. GitHub Pages serves
+the repository root as-is, and every page is plain HTML/CSS/JS.
 
 ## Layout
 
 ```
-index.html            <- portfolio hub: one card per presentation
-assets/hub.css        <- hub styling (shares the palette with the decks)
-assets/hub.js         <- theme toggle + hero network animation
-.nojekyll             <- serve files verbatim, skip Jekyll processing
+index.html              <- portfolio / CV
+favicon.svg
+assets/
+  site.css              <- the design system: all tokens live here
+  site.js               <- theme toggle, nav state, hero graph, scroll reveal
 
-Presentation-01/      <- Network Science (Barabási) — reveal.js deck
-  index.html
-  css/ js/ Chapters/
+blog/
+  index.html            <- post listing
+  posts.js              <- THE MANIFEST — a post is not published until it is here
+  lib/
+    blog.css            <- reading layout, chart & simulation chrome
+    post.js             <- markdown + KaTeX renderer, chart/sim mounting
+    plot.js             <- charting layer
+  _template/            <- copy this folder to start a post
+  why-hubs-happen/      <- a post: index.html + post.md + sim.js
+
+Presentation-01/        <- Network Science (Barabási) — reveal.js deck
 ```
+
+The theme toggle writes one `localStorage` key (`ns-theme`) that the portfolio, the blog
+and the decks all read, so a visitor's light/dark choice follows them across the site.
+
+## Writing a post
+
+```
+cp -r blog/_template blog/my-post-slug
+```
+
+1. Write `blog/my-post-slug/post.md` — plain Markdown.
+2. Add an entry to the **top** of the array in `blog/posts.js`. Nothing appears on the
+   blog index or the homepage until this exists.
+3. Commit and push. Pages redeploys in about a minute.
+
+`blog/_template/post.md` is a live cheat-sheet for everything below — open
+`/blog/_template/` in a browser to see it rendered.
+
+### Maths
+
+Inline between single dollars (`$\langle k \rangle$`), display between double dollars.
+KaTeX renders it. Markdown can't mangle it: `lib/post.js` lifts every maths span and code
+fence out of the source *before* Markdown runs and puts them back afterwards.
+
+### Charts
+
+A fenced block tagged `chart` becomes a real chart. The body is JSON:
+
+````
+```chart
+{
+  "type": "line",
+  "title": "Poisson vs power law",
+  "x": { "label": "degree k", "scale": "log" },
+  "y": { "label": "p(k)", "scale": "log" },
+  "data": [
+    { "name": "power law", "points": [[1,0.75],[10,0.0024],[100,7.5e-6]] },
+    { "name": "Poisson",   "points": [[1,0.15],[10,0.0008],[20,7.1e-11]] }
+  ]
+}
+```
+````
+
+`type` is `line`, `scatter` or `bar`; either axis takes `"scale": "log"`. Every chart gets
+a legend, direct end-labels and a data-table toggle automatically — that is the
+accessibility contract in `lib/plot.js`, not a per-chart option. Line charts also get a
+crosshair tooltip.
+
+The categorical palette in `lib/plot.js` is validated (colourblind separation, contrast,
+lightness band) in both light and dark mode. **Don't hand-pick series colours** — slots are
+assigned in a fixed order and never cycled. Scatter caps at 3 series by design; past that,
+facet into two charts.
+
+### Simulations
+
+Put an empty div where it should appear:
+
+```html
+<div class="sim" data-sim="my-sim"></div>
+```
+
+register it in that post's `sim.js`:
+
+```js
+Blog.sim('my-sim', function (host) { /* build into host */ });
+```
+
+and set `"sim": true` on the post's entry in `blog/posts.js` — that flag is what tells the
+page to load `sim.js` at all. `blog/why-hubs-happen/sim.js` is a full worked example
+(D3 force layout, live histogram, controls, pauses when off-screen).
+
+Simulations and charts should redraw on the `themechange` window event so they follow the
+theme toggle.
 
 ## Adding a presentation
 
-1. Drop the new deck's folder next to `index.html` (e.g. `Presentation-02/`), with its
-   own `index.html` inside. Use **relative** paths inside the deck — it is served from a
-   sub-path, so a leading `/` would break.
-2. Copy one `<a class="deck">` block in `index.html` (see the `DECK REGISTRY` comment),
-   point `href` at the folder, update the text, and bump the `count` in the section head.
-3. Commit and push to `main` — Pages redeploys within a minute or so.
+1. Drop the deck's folder next to `index.html` (e.g. `Presentation-02/`) with its own
+   `index.html`. Use **relative** paths inside it — decks are served from a sub-path, so a
+   leading `/` breaks.
+2. Copy one `<a class="card">` block in the `DECK REGISTRY` comment in `index.html`.
 
 ## Local preview
 
-Opening `index.html` straight off disk works, but a local server matches production
-more closely:
+`fetch()` is blocked on `file://`, so posts will not load if you open the HTML directly.
+Use a server:
 
 ```
 python -m http.server 8000
-# then visit http://localhost:8000/
 ```
 
 ## Note on figures
 
-The Network Science deck hot-links book figures from `networksciencebook.com`. They
-render online as long as that site keeps serving them; if any go missing, download the
-affected images into the chapter's `images/` folder and switch the `src` to the local
-relative path.
+The Network Science deck hot-links book figures from `networksciencebook.com`. If that host
+is down or drops them, download the affected images into the chapter's `images/` folder and
+switch the `src` to the local relative path.

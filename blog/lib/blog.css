@@ -1,0 +1,563 @@
+/* ============================================================
+   blog.css — reading layout, post typography, chart & sim chrome.
+   Loaded on top of assets/site.css, which owns the tokens.
+   ============================================================ */
+
+/* ---- reading progress ------------------------------------- */
+
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent-hub);
+  z-index: 60;
+  transition: width 0.08s linear;
+}
+
+/* ---- blog index -------------------------------------------- */
+
+.blog-head {
+  padding: 4.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3rem;
+}
+
+.blog-head h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+
+.blog-head p {
+  color: var(--ink-dim);
+  max-width: 40rem;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.post-list { display: flex; flex-direction: column; }
+
+.post-row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0 2rem;
+  padding: 1.9rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s ease;
+}
+
+.post-row:hover { border-bottom-color: var(--accent-hub); }
+
+.post-row .date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  padding-top: 0.3rem;
+  white-space: nowrap;
+}
+
+.post-row h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.28;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.012em;
+  transition: color 0.15s ease;
+}
+
+.post-row:hover h2 { color: var(--accent-hub); }
+
+.post-row p { margin: 0 0 0.7rem; color: var(--ink-dim); font-size: 0.95rem; }
+
+.post-row .meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 640px) {
+  .post-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .post-row .date { padding-top: 0; }
+}
+
+.empty-note {
+  border: 1px dashed var(--rule);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--ink-dim);
+}
+
+/* ---- post layout: article + sticky contents ---------------- */
+
+.post-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  gap: 0 3.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .post-shell { grid-template-columns: minmax(0, 1fr); }
+  .toc { display: none; }
+}
+
+.toc {
+  position: sticky;
+  top: 5.5rem;
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+}
+
+.toc h4 {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.8rem;
+}
+
+.toc a {
+  display: block;
+  color: var(--ink-dim);
+  text-decoration: none;
+  padding: 0.24rem 0 0.24rem 0.85rem;
+  border-left: 2px solid var(--rule);
+  line-height: 1.4;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.toc a:hover { color: var(--ink); }
+.toc a.active { color: var(--accent-hub); border-left-color: var(--accent-hub); }
+.toc a.lvl-3 { padding-left: 1.6rem; font-size: 0.8rem; }
+
+/* ---- post header ------------------------------------------- */
+
+.post-head { padding: 3.5rem 0 2rem; }
+
+.post-head .back {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1.6rem;
+}
+
+.post-head .back:hover { color: var(--accent-hub); }
+
+.post-head h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4.6vw, 2.9rem);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.9rem;
+}
+
+.post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: center;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---- article typography ------------------------------------ */
+
+.article {
+  font-size: 1.055rem;
+  line-height: 1.78;
+  color: var(--ink-dim);
+  max-width: 46rem;
+  padding-bottom: 3rem;
+}
+
+.article > *:first-child { margin-top: 0; }
+
+.article h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 3rem 0 1rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.article h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.22rem;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.article p { margin: 0 0 1.25rem; }
+.article strong { color: var(--ink); font-weight: 600; }
+.article em { font-style: italic; }
+
+.article a {
+  color: var(--accent-edge);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-edge) 40%, transparent);
+  transition: border-color 0.15s ease;
+}
+.article a:hover { border-bottom-color: var(--accent-edge); }
+
+.article ul, .article ol { margin: 0 0 1.35rem; padding-left: 1.3rem; }
+.article li { margin-bottom: 0.45rem; }
+.article li::marker { color: var(--accent-hub); }
+
+.article hr { border: 0; border-top: 1px solid var(--rule); margin: 2.75rem 0; }
+
+.article blockquote {
+  margin: 1.6rem 0;
+  padding: 0.15rem 0 0.15rem 1.3rem;
+  border-left: 2px solid var(--accent-hub);
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+.article img { max-width: 100%; border-radius: 8px; border: 1px solid var(--rule); }
+
+.article figure { margin: 2rem 0; }
+.article figure img { display: block; margin: 0 auto; }
+.article figcaption {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+/* inline code + blocks */
+
+.article code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  padding: 0.08em 0.36em;
+  color: var(--accent-hub);
+}
+
+.article pre {
+  background: var(--bg-sunken);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.05rem 1.2rem;
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+}
+
+.article pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--ink);
+  font-size: 0.855rem;
+}
+
+/* tables */
+
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+}
+
+.article th, .article td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.article th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.article td { font-variant-numeric: tabular-nums; }
+
+/* wide content must scroll in its own box, never the page */
+.article .scroll-x { overflow-x: auto; }
+
+/* ---- KaTeX ------------------------------------------------- */
+
+.article .katex { font-size: 1.05em; }
+
+.article .katex-display {
+  margin: 1.6rem 0;
+  padding: 0.35rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ---- callouts ---------------------------------------------- */
+
+.article .note {
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent-edge);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.75rem 0;
+  font-size: 0.97rem;
+}
+
+.article .note.warn { border-left-color: var(--accent-hub); }
+.article .note p:last-child { margin-bottom: 0; }
+
+.article .note .note-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-edge);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.article .note.warn .note-label { color: var(--accent-hub); }
+
+/* ============================================================
+   CHARTS
+   ============================================================ */
+
+.chart { margin: 2.25rem 0; }
+
+.chart-fig {
+  margin: 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem 1rem;
+}
+
+.chart-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: var(--ink);
+  margin: 0 0 0.15rem;
+  line-height: 1.4;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin: 0.55rem 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--ink-dim);
+}
+
+.chart-legend .lg { display: inline-flex; align-items: center; gap: 0.42rem; }
+
+.chart-legend i {
+  width: 10px; height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+  flex: none;
+}
+
+.chart-plot { position: relative; }
+
+.chart-caption {
+  font-size: 0.83rem;
+  color: var(--ink-faint);
+  margin: 0.5rem 0 0;
+  line-height: 1.55;
+}
+
+.chart-tools { margin-top: 0.7rem; }
+
+.chart-tablebtn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.22rem 0.62rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.chart-tablebtn:hover { color: var(--accent-hub); border-color: var(--accent-hub); }
+
+.chart-table { margin-top: 0.85rem; max-height: 17rem; overflow: auto; }
+
+.chart-table table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+
+.chart-table th, .chart-table td {
+  text-align: left;
+  padding: 0.32rem 0.6rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.chart-table th {
+  position: sticky;
+  top: 0;
+  background: var(--bg-panel);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.chart-table td { font-variant-numeric: tabular-nums; color: var(--ink-dim); }
+
+/* tooltip */
+
+.chart-tip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0.5rem 0.65rem;
+  box-shadow: var(--shadow);
+  font-size: 0.78rem;
+  min-width: 8rem;
+}
+
+.chart-tip .tip-x {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.chart-tip .tip-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--ink-dim);
+  line-height: 1.7;
+}
+
+.chart-tip .tip-row i { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+.chart-tip .tip-row span { flex: 1; }
+.chart-tip .tip-row b { color: var(--ink); font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* ============================================================
+   SIMULATIONS — interactive blocks a post mounts into
+   ============================================================ */
+
+.sim {
+  margin: 2.25rem 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem 1.1rem;
+}
+
+.sim-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.sim-title { font-weight: 600; font-size: 0.97rem; color: var(--ink); }
+
+.sim-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-edge);
+}
+
+.sim-canvas { width: 100%; display: block; border-radius: 8px; }
+
+.sim-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 1.2rem;
+  margin-top: 0.9rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule-soft);
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--ink-dim);
+}
+
+.sim-controls label { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+.sim-controls input[type="range"] { accent-color: var(--accent-hub); width: 7.5rem; }
+
+.sim-controls output { color: var(--accent-hub); font-variant-numeric: tabular-nums; min-width: 2.4rem; }
+
+.sim-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink);
+  background: var(--bg-panel-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.28rem 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.sim-btn:hover { border-color: var(--accent-hub); color: var(--accent-hub); }
+
+.sim-readout {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- post footer nav --------------------------------------- */
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-top: 1px solid var(--rule);
+  padding: 1.75rem 0 0;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.post-nav a { color: var(--ink-dim); text-decoration: none; max-width: 45%; }
+.post-nav a:hover { color: var(--accent-hub); }
+.post-nav .lbl { display: block; font-size: 0.68rem; color: var(--ink-faint); margin-bottom: 0.2rem; }
+
+@media print {
+  .toc, .progress, .chart-tools, .post-nav, .sim-controls { display: none !important; }
+  .article { max-width: none; }
+}
