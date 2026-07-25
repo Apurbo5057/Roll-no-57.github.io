@@ -7,7 +7,11 @@
    Source notes: Chapters/paper_explainer.md
    Walkthrough of Kamal, Das & Rahman, "Generating Scale-Free
    Caterpillar and Series-Parallel Networks" (ICCA 2024) — the
-   thesis's direct predecessor. No live sims in this chapter.
+   thesis's direct predecessor.
+
+   Live sims (shared lib js/lib/network-sim.js):
+     createCaterpillarStepSim   — Algorithm 1, click-through
+     createSeriesParallelStepSim — Algorithm 2, click-through
    ============================================================ */
 
 window.chapters = window.chapters || [];
@@ -157,6 +161,20 @@ window.chapters.push({
       <p class="caption">"Skeleton first, then fill in" &mdash; the pattern that recurs for both classes and, hopefully, for planar.</p>
     </section>`,
 
+    // 8b. Caterpillar Algorithm 1 — step-by-step simulation
+    `<section>
+      <h2>Algorithm 1, Step by Step</h2>
+      <p>Click through the build on a fixed 9-vertex example &mdash; spine \\(s_0,s_1,s_2\\) with degrees 3, 4, 3, and six leaves.</p>
+      <div class="sim-container" id="cat-step-sim" style="height:330px;"></div>
+      <div class="sim-controls">
+        <button onclick="window.catStepSim.prev()">&lsaquo; back</button>
+        <button onclick="window.catStepSim.next()">next &rsaquo;</button>
+        <button onclick="window.catStepSim.reset()">reset</button>
+        <span id="cat-step-count" class="caption"></span>
+      </div>
+      <p class="caption" id="cat-step-cap" style="min-height:2.6em; margin-top:0.4rem;"></p>
+    </section>`,
+
     // 9. Caterpillar correctness + complexity
     `<section>
       <h2>Step 3 &mdash; Correctness &amp; Complexity (Thm 3.2)</h2>
@@ -239,6 +257,20 @@ window.chapters.push({
         </ol>
       </div>
       <p class="caption">Figure 6 walks a concrete 5-vertex example &mdash; the fastest way to build intuition.</p>
+    </section>`,
+
+    // 13b. Algorithm 2 — step-by-step simulation
+    `<section>
+      <h2>Algorithm 2, Step by Step</h2>
+      <p>Watch the open-port <strong>stack</strong> (right) drive the build for \\(U=\\{u_0{:}4, u_1{:}3, u_2{:}3\\}\\) and one deg-2 vertex \\(v_0\\).</p>
+      <div class="sim-container" id="sp-step-sim" style="height:330px;"></div>
+      <div class="sim-controls">
+        <button onclick="window.spStepSim.prev()">&lsaquo; back</button>
+        <button onclick="window.spStepSim.next()">next &rsaquo;</button>
+        <button onclick="window.spStepSim.reset()">reset</button>
+        <span id="sp-step-count" class="caption"></span>
+      </div>
+      <p class="caption" id="sp-step-cap" style="min-height:2.6em; margin-top:0.4rem;"></p>
     </section>`,
 
     // 14. Correctness (induction)
@@ -348,5 +380,25 @@ window.chapters.push({
       </div>
       <p class="caption">Cite the original directly: Kamal, Das &amp; Rahman, ICCA 2024, doi:10.1145/3723178.3723189.</p>
     </section>`
-  ]
+  ],
+
+  afterRender: function () {
+    const cat = document.getElementById('cat-step-sim');
+    if (cat && cat.clientWidth > 0 && !cat.dataset.inited) {
+      window.catStepSim = createCaterpillarStepSim(cat, {
+        capEl: document.getElementById('cat-step-cap'),
+        countEl: document.getElementById('cat-step-count')
+      });
+      cat.dataset.inited = '1';
+    }
+
+    const sp = document.getElementById('sp-step-sim');
+    if (sp && sp.clientWidth > 0 && !sp.dataset.inited) {
+      window.spStepSim = createSeriesParallelStepSim(sp, {
+        capEl: document.getElementById('sp-step-cap'),
+        countEl: document.getElementById('sp-step-count')
+      });
+      sp.dataset.inited = '1';
+    }
+  }
 });

@@ -1764,3 +1764,238 @@ function createThresholdSim(container, opts = {}) {
   svg.append('text').attr('x',W-142).attr('y',pad.t+24).attr('fill','var(--ink-dim)').attr('font-family','var(--font-mono)').attr('font-size',9).text('random (finite λc)');
   return {};
 }
+
+// ---- Chapter 11 · Algorithm 1: caterpillar construction, step-by-step ----
+// A click-driven walkthrough of Kamal-Das-Rahman Algorithm 1 on a fixed
+// 9-vertex example (spine s0,s1,s2 with degrees 3,4,3; six leaves). Each
+// next() advances one micro-step; prev()/reset() rewind. State is rendered
+// declaratively from the step index, so stepping in either direction is safe.
+function createCaterpillarStepSim(container, opts = {}) {
+  const W = container.clientWidth, H = container.clientHeight;
+  if (!W || !H) return { next(){}, prev(){}, reset(){} };
+  const capEl = opts.capEl, countEl = opts.countEl;
+  const HUB = 'var(--accent-hub)', EDGE = 'var(--accent-edge)', GRAY = 'var(--ink-dim)', DANGER = 'var(--accent-danger)';
+
+  const svg = d3.select(container).append('svg').attr('width', W).attr('height', H);
+  const gEdge = svg.append('g'), gNode = svg.append('g'), gLabel = svg.append('g');
+
+  const sx = [0.26 * W, 0.5 * W, 0.74 * W];
+  const spineY = 0.40 * H;
+  const spine = [
+    { id: 's0', deg: 3, x: sx[0], y: spineY },
+    { id: 's1', deg: 4, x: sx[1], y: spineY },
+    { id: 's2', deg: 3, x: sx[2], y: spineY }
+  ];
+  // Leaves: fx/fy = final attached position, step = when its edge appears.
+  const leaves = [
+    { id: 'a0', fx: sx[0] - 0.10 * W, fy: 0.72 * H, step: 5 },
+    { id: 'b0', fx: sx[1] - 0.07 * W, fy: 0.74 * H, step: 6 },
+    { id: 'b1', fx: sx[1] + 0.07 * W, fy: 0.74 * H, step: 6 },
+    { id: 'c0', fx: sx[2] + 0.10 * W, fy: 0.72 * H, step: 7 },
+    { id: 'e0', fx: sx[0], fy: 0.13 * H, step: 8 },
+    { id: 'e2', fx: sx[2], fy: 0.13 * H, step: 9 }
+  ];
+  // Pool position (leaf pool, once split happens) and the step-0 "isolated" row.
+  leaves.forEach((lf, i) => { lf.px = (0.16 + i * 0.135) * W; lf.py = 0.86 * H; });
+  const all = spine.concat(leaves);
+  all.forEach((nd, i) => { nd.ix = (0.11 + i * 0.095) * W; nd.iy = 0.5 * H; });
+
+  const edges = [
+    { a: 's0', b: 's1', step: 3 },
+    { a: 's1', b: 's2', step: 4 },
+    { a: 's0', b: 'a0', step: 5 },
+    { a: 's1', b: 'b0', step: 6 },
+    { a: 's1', b: 'b1', step: 6 },
+    { a: 's2', b: 'c0', step: 7 },
+    { a: 's0', b: 'e0', step: 8 },
+    { a: 's2', b: 'e2', step: 9 }
+  ];
+
+  const captions = [
+    'Start: n = 9 isolated vertices, each carrying a power-law target degree.',
+    'Split into U = spine (deg ≥ 2, gold) and V = leaves (deg 1, teal). Leaves wait in a pool.',
+    'Sanity-fix: nudge the largest-degree spine vertex so the leaf-slot identity 2 + Σ(deg−2) = |V| holds exactly.',
+    'Build the spine — connect consecutive spine vertices into a simple path. (s0–s1)',
+    '…and s1–s2. The spine is now a path.',
+    'Attach deg(u)−2 leaves to each spine vertex. s0 (deg 3) → 1 leaf, popped from the pool.',
+    's1 (deg 4) → 2 leaves.',
+    's2 (deg 3) → 1 leaf.',
+    'Give each spine endpoint one extra leaf — the "+2". s0 endpoint.',
+    's2 endpoint. Done: 8 edges = n−1, connected & acyclic ⇒ a caterpillar. Clustering = 0.'
+  ];
+  const N = captions.length - 1;
+  let step = 0;
+
+  function byId(id) { return spine.find(s => s.id === id) || leaves.find(l => l.id === id); }
+  function pos(nd) {
+    if (step === 0) return [nd.ix, nd.iy];
+    if (nd.deg) return [nd.x, nd.y];
+    return step >= nd.step ? [nd.fx, nd.fy] : [nd.px, nd.py];
+  }
+  function color(nd) {
+    if (step === 0) return GRAY;
+    return nd.deg ? HUB : EDGE;
+  }
+
+  function render() {
+    all.forEach(nd => { const p = pos(nd); nd._x = p[0]; nd._y = p[1]; });
+
+    const vis = edges.filter(e => step >= e.step);
+    const eSel = gEdge.selectAll('line').data(vis, d => d.a + '-' + d.b);
+    eSel.exit().remove();
+    eSel.enter().append('line')
+      .attr('stroke', EDGE).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-opacity', 0)
+      .merge(eSel)
+      .attr('x1', d => byId(d.a)._x).attr('y1', d => byId(d.a)._y)
+      .attr('x2', d => byId(d.b)._x).attr('y2', d => byId(d.b)._y)
+      .transition().duration(300).attr('stroke-opacity', 0.75);
+
+    const nSel = gNode.selectAll('circle').data(all, d => d.id);
+    nSel.enter().append('circle')
+      .attr('cx', d => d._x).attr('cy', d => d._y)
+      .merge(nSel)
+      .attr('fill', d => color(d))
+      .attr('stroke', d => (step === 2 && d.id === 's1') ? DANGER : 'none')
+      .attr('stroke-width', d => (step === 2 && d.id === 's1') ? 3 : 0)
+      .transition().duration(400)
+      .attr('cx', d => d._x).attr('cy', d => d._y)
+      .attr('r', d => d.deg ? 10 : 6);
+
+    const labs = gLabel.selectAll('text').data(step >= 1 ? spine : [], d => d.id);
+    labs.exit().remove();
+    labs.enter().append('text')
+      .attr('text-anchor', 'middle').attr('font-family', 'var(--font-mono)').attr('font-size', '11px').attr('fill', 'var(--ink-dim)')
+      .merge(labs)
+      .attr('x', d => d.x).attr('y', d => d.y - 17)
+      .text(d => d.id + ' (' + d.deg + ')');
+
+    if (capEl) capEl.textContent = captions[step];
+    if (countEl) countEl.textContent = 'Step ' + step + ' / ' + N;
+  }
+
+  render();
+  return {
+    next() { if (step < N) { step++; render(); } },
+    prev() { if (step > 0) { step--; render(); } },
+    reset() { step = 0; render(); }
+  };
+}
+
+// ---- Chapter 11 · Algorithm 2: series-parallel construction, step-by-step ----
+// Click-driven walkthrough of the open-port / stack (LIFO) model on a fixed
+// example: U = {u0:4, u1:3, u2:3} (deg > 2) and V = {v0:2}. The left half shows
+// the graph, the right half the live stack S. Parallel edges are drawn as arcs
+// and flagged red — the multigraph outcome Thm 4.2 proves is unavoidable.
+function createSeriesParallelStepSim(container, opts = {}) {
+  const W = container.clientWidth, H = container.clientHeight;
+  if (!W || !H) return { next(){}, prev(){}, reset(){} };
+  const capEl = opts.capEl, countEl = opts.countEl;
+  const HUB = 'var(--accent-hub)', EDGE = 'var(--accent-edge)', GRAY = 'var(--ink-dim)', DANGER = 'var(--accent-danger)';
+
+  const svg = d3.select(container).append('svg').attr('width', W).attr('height', H);
+  const gEdge = svg.append('g'), gNode = svg.append('g'), gLabel = svg.append('g'), gStack = svg.append('g');
+
+  const nodes = {
+    u0: { id: 'u0', deg: 4, x: 0.28 * W, y: 0.24 * H, act: 2, col: HUB },
+    u1: { id: 'u1', deg: 3, x: 0.10 * W, y: 0.66 * H, act: 3, col: HUB },
+    u2: { id: 'u2', deg: 3, x: 0.46 * W, y: 0.66 * H, act: 4, col: HUB },
+    v0: { id: 'v0', deg: 2, x: 0.28 * W, y: 0.66 * H, act: 6, col: EDGE }
+  };
+  // s = appear step; until = disappear step (subdivided edge); curve = arc offset px.
+  const edges = [
+    { id: 'e1', a: 'u0', b: 'u1', s: 3, curve: 0 },
+    { id: 'e2', a: 'u0', b: 'u1', s: 3, curve: 32, danger: true },
+    { id: 'e3', a: 'u2', b: 'u1', s: 4, until: 6, curve: 0 },
+    { id: 'e4', a: 'u2', b: 'u0', s: 4, curve: 0 },
+    { id: 'e5', a: 'u0', b: 'u2', s: 5, curve: 36, danger: true },
+    { id: 'e3a', a: 'u1', b: 'v0', s: 6, curve: 0 },
+    { id: 'e3b', a: 'v0', b: 'u2', s: 6, curve: 0 }
+  ];
+  const stackByStep = [[], [], ['u0', 'u0', 'u0', 'u0'], ['u0', 'u0', 'u1'], ['u0', 'u2'], [], []];
+
+  const captions = [
+    'Split into U = {u0:4, u1:3, u2:3} (deg > 2, sorted ↓) and V = {v0:2}. Fill degrees as ports using a LIFO stack S.',
+    'Readjust: simulate the port-closing pass and dump leftover open ports onto u0, so the stack ends balanced.',
+    'Push u0 onto S four times — u0\'s 4 open ports.',
+    'u1 (deg 3): pop the 2 most-recent ports (both u0) and connect. Two edges to the same u0 ⇒ a parallel edge (red). Push u1\'s 1 leftover port.',
+    'u2 (deg 3): pop the top two ports (u1, then u0) and connect. Push u2\'s 1 leftover port.',
+    'Connect the two ports still on S (u0, u2) — the closing parallel s–t edge.',
+    'Insert each deg-2 vertex by subdividing a random edge: v0 splits edge u1–u2. Series-parallel by construction — but the red arcs are the multigraph Thm 4.2 warns of.'
+  ];
+  const N = captions.length - 1;
+  let step = 0;
+
+  // Static stack scaffold (drawn once).
+  const stackX = 0.70 * W, tokW = 0.22 * W, tokH = 24, baseY = 0.82 * H;
+  svg.append('line').attr('x1', stackX - 6).attr('x2', stackX - 6).attr('y1', 0.10 * H).attr('y2', baseY)
+    .attr('stroke', 'var(--rule)').attr('stroke-width', 1);
+  svg.append('text').attr('x', stackX + tokW / 2).attr('y', 0.08 * H)
+    .attr('text-anchor', 'middle').attr('font-family', 'var(--font-mono)').attr('font-size', '11px').attr('fill', 'var(--ink-dim)')
+    .text('stack S  (top ↑)');
+  svg.append('line').attr('x1', stackX).attr('x2', stackX + tokW).attr('y1', baseY + 1).attr('y2', baseY + 1)
+    .attr('stroke', 'var(--ink-dim)').attr('stroke-width', 2);
+
+  function edgePath(e) {
+    const A = nodes[e.a], B = nodes[e.b];
+    if (!e.curve) return 'M' + A.x + ',' + A.y + ' L' + B.x + ',' + B.y;
+    const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2;
+    const dx = B.x - A.x, dy = B.y - A.y, len = Math.hypot(dx, dy) || 1;
+    const cx = mx + (-dy / len) * e.curve, cy = my + (dx / len) * e.curve;
+    return 'M' + A.x + ',' + A.y + ' Q' + cx + ',' + cy + ' ' + B.x + ',' + B.y;
+  }
+
+  function render() {
+    const vis = edges.filter(e => step >= e.s && (e.until == null || step < e.until));
+    const eSel = gEdge.selectAll('path').data(vis, d => d.id);
+    eSel.exit().remove();
+    eSel.enter().append('path')
+      .attr('fill', 'none').attr('stroke-linecap', 'round').attr('stroke-opacity', 0)
+      .merge(eSel)
+      .attr('d', edgePath)
+      .attr('stroke', d => d.danger ? DANGER : EDGE)
+      .attr('stroke-width', d => d.danger ? 2.5 : 2)
+      .transition().duration(300).attr('stroke-opacity', d => d.danger ? 0.9 : 0.75);
+
+    const nlist = Object.values(nodes).filter(n => step >= (n.id === 'v0' ? 6 : 0));
+    const nSel = gNode.selectAll('circle').data(nlist, d => d.id);
+    nSel.enter().append('circle').attr('cx', d => d.x).attr('cy', d => d.y).attr('r', 0)
+      .merge(nSel)
+      .attr('cx', d => d.x).attr('cy', d => d.y)
+      .attr('stroke', d => (step === 1 && d.id === 'u0') ? DANGER : 'none')
+      .attr('stroke-width', d => (step === 1 && d.id === 'u0') ? 3 : 0)
+      .transition().duration(350)
+      .attr('r', d => d.id === 'v0' ? 6 : 10)
+      .attr('fill', d => step >= d.act ? d.col : GRAY);
+
+    const labs = gLabel.selectAll('text').data(nlist, d => d.id);
+    labs.enter().append('text')
+      .attr('text-anchor', 'middle').attr('font-family', 'var(--font-mono)').attr('font-size', '11px').attr('fill', 'var(--ink-dim)')
+      .merge(labs)
+      .attr('x', d => d.x).attr('y', d => d.y - 16)
+      .text(d => d.id + ' (' + d.deg + ')');
+
+    const toks = stackByStep[step].map((owner, i) => ({ owner: owner, i: i }));
+    const tSel = gStack.selectAll('g.tok').data(toks, d => d.i);
+    tSel.exit().remove();
+    const tEnter = tSel.enter().append('g').attr('class', 'tok');
+    tEnter.append('rect').attr('width', tokW).attr('height', tokH).attr('rx', 4)
+      .attr('fill', 'var(--bg-panel-2)').attr('stroke', HUB).attr('stroke-width', 1.5);
+    tEnter.append('text').attr('text-anchor', 'middle').attr('dominant-baseline', 'central')
+      .attr('font-family', 'var(--font-mono)').attr('font-size', '11px').attr('fill', 'var(--accent-hub)');
+    const tMerge = tEnter.merge(tSel);
+    tMerge.transition().duration(300)
+      .attr('transform', d => 'translate(' + stackX + ',' + (baseY - (d.i + 1) * (tokH + 5)) + ')');
+    tMerge.select('rect').attr('width', tokW);
+    tMerge.select('text').attr('x', tokW / 2).attr('y', tokH / 2).text(d => d.owner + ' port');
+
+    if (capEl) capEl.textContent = captions[step];
+    if (countEl) countEl.textContent = 'Step ' + step + ' / ' + N;
+  }
+
+  render();
+  return {
+    next() { if (step < N) { step++; render(); } },
+    prev() { if (step > 0) { step--; render(); } },
+    reset() { step = 0; render(); }
+  };
+}
