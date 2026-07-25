@@ -154,6 +154,43 @@ window.chapters.push({
       <p class="caption">For the common \\(2 &lt; \\gamma &lt; 3\\): \\(\\langle k \\rangle\\) is finite, but \\(\\langle k^2 \\rangle\\) diverges. That divergence is the whole reason for the name.</p>
     </section>`,
 
+    // 10b. The three gamma regimes (moment table)
+    `<section>
+      <h2>Three Regimes of \\(\\gamma\\)</h2>
+      <p>The condition \\(n \\le \\gamma-1\\) sorts <em>every</em> scale-free network into three regimes, according to whether the mean (\\(n=1\\)) and variance (\\(n=2\\)) stay finite as \\(N\\to\\infty\\):</p>
+      <table style="width:100%; border-collapse:collapse; font-size:0.95rem; margin:0.4rem 0;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--rule); font-family:var(--font-mono); color:var(--accent-edge); text-transform:uppercase; font-size:0.75rem; letter-spacing:0.08em;">
+            <th style="text-align:left; padding:0.5rem 0.6rem;">Exponent</th>
+            <th style="text-align:left; padding:0.5rem 0.6rem;">Mean \\(\\langle k\\rangle\\)</th>
+            <th style="text-align:left; padding:0.5rem 0.6rem;">Variance \\(\\langle k^2\\rangle\\)</th>
+            <th style="text-align:left; padding:0.5rem 0.6rem;">Behaviour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:0.55rem 0.6rem;">\\(\\gamma &lt; 2\\)</td>
+            <td style="padding:0.55rem 0.6rem;">diverges</td>
+            <td style="padding:0.55rem 0.6rem;">diverges</td>
+            <td style="padding:0.55rem 0.6rem; color:var(--accent-danger);"><strong>pathological</strong> &mdash; not physical, no typical node</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:0.55rem 0.6rem;">\\(2 &lt; \\gamma &lt; 3\\)</td>
+            <td style="padding:0.55rem 0.6rem;">finite</td>
+            <td style="padding:0.55rem 0.6rem;">diverges</td>
+            <td style="padding:0.55rem 0.6rem; color:var(--accent-hub);"><strong>scale-free</strong> &mdash; the interesting regime</td>
+          </tr>
+          <tr>
+            <td style="padding:0.55rem 0.6rem;">\\(\\gamma &gt; 3\\)</td>
+            <td style="padding:0.55rem 0.6rem;">finite</td>
+            <td style="padding:0.55rem 0.6rem;">finite</td>
+            <td style="padding:0.55rem 0.6rem; color:var(--accent-edge);"><strong>random</strong> &mdash; hubs too small to matter</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="caption">A finite mean but infinite variance &mdash; the middle row &mdash; is exactly "an average that tells you nothing." That is where real scale-free networks, and this thesis, live.</p>
+    </section>`,
+
     // 11. Lack of a scale
     `<section>
       <h2>No Internal Scale</h2>
@@ -190,6 +227,24 @@ window.chapters.push({
       <h2>Distances Across the Four Regimes</h2>
       <img src="js/chapters/chapter-04-scale-free-networks/images/book/figure-4-12.jpg" alt="Distances in scale-free networks" style="width:82%; display:block; margin:0 auto 0.5rem; border-radius:6px; border:1px solid var(--rule);">
       <p class="caption">Image 4.12 &mdash; at small \\(N\\) the four \\(\\gamma\\)-regimes are indistinguishable; at large \\(N\\) they separate dramatically. The smaller the \\(\\gamma\\), the shorter the distances.</p>
+    </section>`,
+
+    // 14b. Role of the degree exponent — why gamma never below 2
+    `<section>
+      <h2>Role of \\(\\gamma\\): Why Never Below 2?</h2>
+      <p>A hard ceiling: in a <em>simple</em> network of \\(N\\) nodes, any single hub can have <strong>at most \\(N-1\\)</strong> links &mdash; it can't connect to more nodes than exist. Compare that to how the largest hub grows:</p>
+      <div class="eq-panel">\\[ k_{max} \\sim k_{min}\\,N^{\\frac{1}{\\gamma-1}} \\]</div>
+      <div class="two-col">
+        <div class="panel">
+          <strong style="color:var(--accent-hub)">\\(\\gamma = 2\\)</strong>
+          <p class="caption">Exponent \\(=1\\), so \\(k_{max} \\sim N\\) &mdash; the biggest hub connects to a finite fraction of the <em>whole</em> network. The very edge of what's possible.</p>
+        </div>
+        <div class="panel">
+          <strong style="color:var(--accent-danger)">\\(\\gamma &lt; 2\\)</strong>
+          <p class="caption">Exponent \\(&gt;1\\), so \\(k_{max}\\) grows <em>faster than \\(N\\)</em>. The hub would need more links than there are nodes &mdash; impossible to wire.</p>
+        </div>
+      </div>
+      <p class="caption">This is why measured exponents in real networks essentially always sit <strong>above 2</strong> &mdash; \\(\\gamma &lt; 2\\) is forbidden for large simple graphs. And it sets up the next problem: how do we <em>generate</em> a network with an arbitrary degree distribution?</p>
     </section>`,
 
     // 15. Generating networks (book images - algorithm schematics)
