@@ -286,21 +286,3 @@ Three regimes in the aging exponent $\nu$:
 
 ---
 
-## Figure index (for the slide stage)
-
-- **Meaningful to SIMULATE (live):**
-  - Bianconi–Barabási growth with fitness (colour = fitness, size = degree) — the
-    "fit-gets-rich, latecomer overtakes" demo. **The centerpiece.**
-  - Fitness-dependent degree dynamics $k(t) = m(t/t_i)^{\eta/C}$ — curves with
-    different slopes, a high-fitness latecomer crossing over an old node.
-  - Bose–Einstein condensation — a $\zeta$ (or "fittest-node fitness") slider that
-    tips the network from scale-free (many hubs) to a single super-hub star.
-  - A "$\gamma$ tuner" — a small interactive plugging each process's formula
-    ($A$, $r$, $\theta$, $\nu$) into a live $\gamma$ readout / distribution.
-- **EMBED book image (non-reproducible renders, real data, schematics):** 6.1
-  (marketplace), 6.4/6.5 (real fitness distributions), 6.7 (Bose-gas mapping), 6.10
-  (initial attractiveness data), 6.11 (retracted-paper citations), 6.12 (phase
-  diagram), 6.14 (aging topologies), 6.15 (process menu). 6.2/6.3/6.9 are
-  plots/network drawings I can rebuild live.
-
-Tell me when you want slides.

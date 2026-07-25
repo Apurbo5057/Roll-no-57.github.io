@@ -348,23 +348,3 @@ the flesh.
 
 ---
 
-## Quick figure index (for the slide stage)
-
-Applying your rule — simulate what's meaningful and reproducible, embed the rest:
-
-- **Meaningful to SIMULATE (interactive/live):**
-  - BA growth with preferential attachment (already have `createBAGrowthSim`) — the
-    centerpiece "watch hubs emerge" demo.
-  - Degree dynamics $k_i(t) = m(t/t_i)^{1/2}$ — a plot of several nodes' growth
-    curves (earlier = higher).
-  - The $\Pi(k) \sim k^\alpha$ regimes (sublinear / linear / superlinear) — a slider
-    on $\alpha$ showing hub size change.
-  - Model A vs BA degree distribution (exponential vs power law) — a toggle.
-  - Diameter / clustering scaling vs $N$ — generated plots.
-- **EMBED book image (non-reproducible renders or multi-panel data figures):** 5.1
-  (network growth photos), 5.2 (history), 5.9 (two-snapshot method schematic), 5.10
-  ($\pi(k)$ for four real nets), 5.13/5.14/5.15/5.16 (the origin-model schematics),
-  5.17 (luck-vs-reason). The rest (5.3, 5.4, 5.6, 5.7, 5.8, 5.11, 5.12, 5.18, 5.19)
-  are plots/network drawings I can regenerate live.
-
-Tell me when you want slides.

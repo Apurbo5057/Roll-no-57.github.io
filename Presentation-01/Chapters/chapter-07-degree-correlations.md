@@ -249,18 +249,3 @@ $r=0.31, \mu=0.34$ assortative; metabolism $r=-0.25, \mu=-0.76$ disassortative.)
 
 ---
 
-## Figure index (for the slide stage)
-
-- **Meaningful to SIMULATE (live):**
-  - An **assortative ↔ disassortative toggle** on the same network (Xulvi-Brunet
-    style rewiring) — the clearest way to *show* what the three flavours look like.
-    **Centerpiece.**
-  - The **$k_{nn}(k)$ curve** live — rising / flat / falling for the three types.
-  - The **friendship-paradox** micro-demo (pick a node vs. pick a neighbor).
-  - Optionally the **giant-component shift** vs. correlation type.
-- **EMBED book image (non-reproducible real data / schematics):** 7.1, 7.2 (the two
-  network styles), 7.3 (the $e_{ij}$ matrix), 7.6 ($k_{nn}$ for real nets), 7.7/7.8
-  (structural cutoff), 7.13/7.14 (the tuning algorithm), 7.15/7.16 (impact plots),
-  7.18 (political blogosphere).
-
-Tell me when you want slides.
