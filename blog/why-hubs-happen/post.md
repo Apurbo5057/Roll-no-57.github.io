@@ -187,5 +187,4 @@ is worth its own post.
 ---
 
 *The maths and figures here follow Barabási's [Network Science](https://networksciencebook.com/),
-chapters 3–5. I've built [an interactive walkthrough of the whole book](../../Presentation-01/)
-if you want the long version.*
+chapters 3–5, which is free to read online if you want the long version.*

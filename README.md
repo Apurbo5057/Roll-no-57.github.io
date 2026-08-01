@@ -1,6 +1,6 @@
 # Roll-no-57.github.io
 
-Portfolio, writing and presentations. Live at **https://roll-no-57.github.io/**
+Portfolio and writing. Live at **https://roll-no-57.github.io/**
 
 Everything is static — no build step, no dependencies to install. GitHub Pages serves
 the repository root as-is, and every page is plain HTML/CSS/JS.
@@ -13,6 +13,7 @@ favicon.svg
 assets/
   site.css              <- the design system: all tokens live here
   site.js               <- theme toggle, nav state, hero graph, scroll reveal
+  apurbo.jpg            <- hero portrait
 
 blog/
   index.html            <- post listing
@@ -23,12 +24,10 @@ blog/
     plot.js             <- charting layer
   _template/            <- copy this folder to start a post
   why-hubs-happen/      <- a post: index.html + post.md + sim.js
-
-Presentation-01/        <- Network Science (Barabási) — reveal.js deck
 ```
 
-The theme toggle writes one `localStorage` key (`ns-theme`) that the portfolio, the blog
-and the decks all read, so a visitor's light/dark choice follows them across the site.
+The theme toggle writes one `localStorage` key (`ns-theme`) that the portfolio and the
+blog both read, so a visitor's light/dark choice follows them across the site.
 
 ## Writing a post
 
@@ -100,13 +99,6 @@ page to load `sim.js` at all. `blog/why-hubs-happen/sim.js` is a full worked exa
 Simulations and charts should redraw on the `themechange` window event so they follow the
 theme toggle.
 
-## Adding a presentation
-
-1. Drop the deck's folder next to `index.html` (e.g. `Presentation-02/`) with its own
-   `index.html`. Use **relative** paths inside it — decks are served from a sub-path, so a
-   leading `/` breaks.
-2. Copy one `<a class="card">` block in the `DECK REGISTRY` comment in `index.html`.
-
 ## Local preview
 
 `fetch()` is blocked on `file://`, so posts will not load if you open the HTML directly.
@@ -116,8 +108,7 @@ Use a server:
 python -m http.server 8000
 ```
 
-## Note on figures
+## Resources
 
-The Network Science deck hot-links book figures from `networksciencebook.com`. If that host
-is down or drops them, download the affected images into the chapter's `images/` folder and
-switch the `src` to the local relative path.
+The **Resources** section at the bottom of `index.html` is a single `<a class="resource-card">`
+pointing at a Google Drive folder. To change where it goes, edit that one `href`.

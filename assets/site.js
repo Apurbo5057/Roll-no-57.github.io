@@ -1,10 +1,9 @@
 /* ============================================================
    Shared site behaviour: theme, nav state, hero graph, reveals.
 
-   The theme toggle reuses the SAME localStorage key ('ns-theme')
-   as Presentation-01/js/lib/theme-toggle.js, so a visitor's
-   light/dark choice carries across the portfolio, the blog and
-   the presentation decks instead of resetting at each hop.
+   The theme toggle writes ONE localStorage key ('ns-theme') that
+   the portfolio and the blog both read, so a visitor's light/dark
+   choice carries across the site instead of resetting at each hop.
    ============================================================ */
 
 (function () {

@@ -30,6 +30,7 @@
   <symbol id="i-mail" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.22l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.38-4.7 2.82L15 11.4V5.38zm-.02 7.19L9.4 8.9 8 9.74 6.6 8.9l-5.58 3.67A1 1 0 0 0 2 13h12a1 1 0 0 0 .98-.43zM1 11.4l4.7-3.2L1 5.38v6.02z"/></symbol>
   <symbol id="i-phone" viewBox="0 0 16 16"><path d="M3.65.15 1.2 1.2A1.9 1.9 0 0 0 .1 3.4C.9 8.3 4.8 13.2 9.7 14.9c.9.3 1.9-.1 2.3-1l1.05-2.45a1.2 1.2 0 0 0-.5-1.45l-2.3-1.4a1.2 1.2 0 0 0-1.5.25l-.7.8C6.5 8.8 5.2 7.5 4.35 5.95l.8-.7a1.2 1.2 0 0 0 .25-1.5L4 1.45A1.2 1.2 0 0 0 3.65.15z"/></symbol>
   <symbol id="i-link" viewBox="0 0 16 16"><path d="M6.35 11.3a.75.75 0 0 1-1.06 0L3.17 9.18a3.25 3.25 0 0 1 4.6-4.6l1.06 1.07a.75.75 0 0 1-1.06 1.06L6.71 5.65a1.75 1.75 0 1 0-2.48 2.48l2.12 2.12a.75.75 0 0 1 0 1.06zm3.3-6.6a.75.75 0 0 1 1.06 0l2.12 2.12a3.25 3.25 0 0 1-4.6 4.6L7.17 10.35a.75.75 0 1 1 1.06-1.06l1.06 1.06a1.75 1.75 0 0 0 2.48-2.48L9.65 5.75a.75.75 0 0 1 0-1.06z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 16 16"><path d="M1.75 2h3.86c.46 0 .9.18 1.24.5l1.25 1.25h6.15c.97 0 1.75.78 1.75 1.75v6.75c0 .97-.78 1.75-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.78.78 2 1.75 2z"/></symbol>
 </svg>
 
 <!-- ============================================================
@@ -42,9 +43,9 @@
       <a href="#education">Education</a>
       <a href="#research">Research</a>
       <a href="#projects">Projects</a>
-      <a href="#presentations">Talks</a>
       <a href="#writing">Writing</a>
       <a href="#skills">Skills</a>
+      <a href="#resources">Resources</a>
     </div>
   </div>
 </nav>
@@ -55,13 +56,14 @@
 <header class="hero" id="top">
   <canvas id="hero-net" aria-hidden="true"></canvas>
   <div class="hero-inner">
+    <div class="hero-text">
     <p class="eyebrow">CSE @ BUET &middot; Level 4, Term 1</p>
     <h1>Mosharaf Hossain<br>Apurbo</h1>
     <p class="lede">
       Undergraduate at <strong>BUET</strong>, working on <strong>on-device egocentric vision</strong>
       for wearables with Samsung R&amp;D Bangladesh. I like problems that sit close to the
-      metal — compilers, processor design, quantum machine learning — and I write and
-      present about <strong>network science</strong> with live simulations rather than static slides.
+      metal — compilers, processor design, quantum machine learning — and I write about
+      <strong>network science</strong> with live simulations rather than static diagrams.
     </p>
     <div class="contact-row">
       <a class="contact-chip" href="mailto:mosharaf.apurbo57@gmail.com">
@@ -77,6 +79,11 @@
         <svg><use href="#i-github"/></svg>Roll-no-57
       </a>
     </div>
+    </div>
+
+    <figure class="hero-portrait">
+      <img src="assets/apurbo.jpg" alt="Mosharaf Hossain Apurbo" width="3060" height="4080" decoding="async">
+    </figure>
   </div>
 </header>
 
@@ -262,63 +269,11 @@
   </section>
 
   <!-- ==========================================================
-       04 — PRESENTATIONS
-       ========================================================== -->
-  <section class="band" id="presentations">
-    <div class="section-head reveal-up">
-      <span class="num">04</span>
-      <h2>Presentations</h2>
-      <span class="line"></span>
-      <span class="aside">built as websites, not slide files</span>
-    </div>
-
-    <!-- ==========================================================
-         DECK REGISTRY
-         To add a presentation:
-           1. Drop its folder next to this file (e.g. Presentation-02/)
-              with its own index.html inside.
-           2. Copy one <a class="card"> block below and update it.
-         ========================================================== -->
-    <div class="card-grid">
-
-      <a class="card reveal-up" href="Presentation-01/">
-        <p class="card-meta">Thesis presentation &middot; 2026</p>
-        <h3>Network Science</h3>
-        <p>
-          A walkthrough of Barabási's <em>Network Science</em> — from graph-theory
-          groundwork through random graphs to the scale-free property, preferential
-          attachment, robustness, communities and spreading phenomena. Live D3
-          simulations and KaTeX-rendered mathematics throughout.
-        </p>
-        <div class="chips">
-          <span class="chip">Graph theory</span>
-          <span class="chip">Scale-free</span>
-          <span class="chip">Barabási–Albert</span>
-          <span class="chip">Robustness</span>
-          <span class="chip">Epidemics</span>
-        </div>
-        <div class="card-foot">
-          <span>11 chapters &middot; ~156 slides</span>
-          <span class="cta">Open <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <div class="card upcoming reveal-up">
-        <p class="card-meta">Next up</p>
-        <h3>More on the way</h3>
-        <p>Each new presentation gets its own folder and a card right here.</p>
-        <div class="card-foot"><span>&mdash;</span></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================
-       05 — WRITING  (latest posts injected from blog/posts.js)
+       04 — WRITING  (latest posts injected from blog/posts.js)
        ========================================================== -->
   <section class="band" id="writing">
     <div class="section-head reveal-up">
-      <span class="num">05</span>
+      <span class="num">04</span>
       <h2>Writing</h2>
       <span class="line"></span>
       <span class="aside"><a href="blog/">all posts &rarr;</a></span>
@@ -327,11 +282,11 @@
   </section>
 
   <!-- ==========================================================
-       06 — SKILLS & ACTIVITIES
+       05 — SKILLS & ACTIVITIES
        ========================================================== -->
   <section class="band" id="skills">
     <div class="section-head reveal-up">
-      <span class="num">06</span>
+      <span class="num">05</span>
       <h2>Skills &amp; Activities</h2>
       <span class="line"></span>
     </div>
@@ -373,8 +328,36 @@
     </div>
   </section>
 
+  <!-- ==========================================================
+       06 — RESOURCES
+       A single door to the Drive folder where everything worth
+       keeping lands — so it is one click away from anywhere.
+       ========================================================== -->
+  <section class="band" id="resources">
+    <div class="section-head reveal-up">
+      <span class="num">06</span>
+      <h2>Resources</h2>
+      <span class="line"></span>
+      <span class="aside">one folder, always current</span>
+    </div>
+
+    <a class="resource-card reveal-up"
+       href="https://drive.google.com/drive/folders/1X_s3AA6mQLHVpw67n7bgOj4-NHQMXomb?usp=sharing"
+       target="_blank" rel="noopener">
+      <span class="resource-icon"><svg><use href="#i-folder"/></svg></span>
+      <span class="resource-body">
+        <span class="resource-title">Resource Drive</span>
+        <span class="resource-text">
+          Papers, lecture notes, slide decks and reference material I keep coming back to,
+          collected in one Google Drive folder instead of scattered across machines.
+        </span>
+      </span>
+      <span class="resource-cta">Open Drive <span class="arrow">&rarr;</span></span>
+    </a>
+  </section>
+
   <footer class="foot">
-    <span>&copy; 2026 Mosharaf Hossain Apurbo &middot; built with reveal.js, D3 and KaTeX</span>
+    <span>&copy; 2026 Mosharaf Hossain Apurbo &middot; built with D3 and KaTeX</span>
     <span>
       <a href="https://github.com/Roll-no-57/Roll-no-57.github.io">source</a> &middot;
       <a href="javascript:window.print()" class="no-print">print CV</a>
